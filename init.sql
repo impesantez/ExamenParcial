@@ -1,7 +1,8 @@
-CREATE TABLE IF NOT EXISTS usuarios (
+CREATE TABLE IF NOT EXISTS pacientes (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
-    correo VARCHAR(100) NOT NULL UNIQUE,
-    telefono VARCHAR(10)
+    peso NUMERIC NOT NULL,
+    talla NUMERIC NOT NULL,
+    diagnostico TEXT NOT NULL,
 )
