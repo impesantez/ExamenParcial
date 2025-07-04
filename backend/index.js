@@ -8,12 +8,12 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
-app.post('/api/registrar', async (req, res) => {
-    const { nombre, apellido, correo, telefono } = req.body;
+app.post('/api/pacientes', async (req, res) => {
+    const { nombre, apellido, peso, talla, diagnostico } = req.body;
     try {
         await pool.query(
-            'INSERT INTO usuarios (nombre, apellido, correo, telefono) VALUES ($1, $2, $3, $4)',
-            [nombre, apellido, correo, telefono]
+            'INSERT INTO pacientes (nombre, apellido, peso, talla, diagnostico) VALUES ($1, $2, $3, $4, $5)',
+            [nombre, apellido, peso, talla, diagnostico]
         );
         res.status(201).send({ message: 'Usuario registrado' });
     } catch (error) {
